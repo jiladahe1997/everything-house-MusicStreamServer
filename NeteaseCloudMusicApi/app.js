@@ -86,6 +86,11 @@ app.use('/jiladahe1997.cn/song', (req, res) => {
   const question = require('./jiladahe1997.cn/Song')
   let query = Object.assign({}, req.query, req.body, {cookie: req.cookies})
   question(query, request)
+    .then(answer => {
+      console.log('[OK]', decodeURIComponent(req.originalUrl))
+      // res.append('Set-Cookie', answer.cookie)
+      res.status(answer.status).send(answer.body)
+    })
 })
 
 const port = process.env.PORT || 3000
