@@ -14,7 +14,7 @@ public class musicController {
     @Autowired
     obsController obsController;
 
-    @GetMapping("C:\\music")
+    @GetMapping("/music/start")
     void musicStart(){
         obsController.startStreaming();
     }
@@ -39,7 +39,7 @@ public class musicController {
         return obsController.findMusic(songName);
     }
 
-    @PostMapping("/music/finshDownLoad")
+    @PostMapping("/music/finishDownLoad")
     void musicFinishDownLoad(@RequestParam(value = "songName")String songName){
         obsController.finishDownLoad(songName);
     }

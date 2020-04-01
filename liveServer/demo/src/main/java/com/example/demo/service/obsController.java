@@ -4,7 +4,6 @@ package com.example.demo.service;
 import com.example.demo.tool.Response;
 import com.example.demo.tool.myWebSocketClient;
 import com.example.demo.tool.requsetType;
-import com.example.demo.tool.Response;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +27,8 @@ public class  obsController {
 
 
 
-    private static String filePath="G:/CloudMusic/music/";
+//    private static String filePath="G:/CloudMusic/music/";
+    private static String filePath="C:/music/";
 
     public obsController() throws URISyntaxException, InterruptedException {
         musicList=new ArrayList<>();
@@ -85,7 +85,7 @@ public class  obsController {
             lock.lock();
             if (streamingFlag) {
                 client.send(object.toString());
-                client.send(object.toString());
+                client.send(object1.toString());
                 streamingFlag = false;
             }
         }finally {
