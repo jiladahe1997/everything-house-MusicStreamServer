@@ -33,9 +33,8 @@
             <version>20190722</version>
         </dependency>
         <dependency>
-            <groupId>net.twasi</groupId>
-            <artifactId>obs-websocket-java</artifactId>
-            <version>1.0.1</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
         </dependency>
     </dependencies>
 

@@ -1,9 +1,8 @@
 package com.example.demo.tool;
-import com.example.demo.service.obsController;
+
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
 import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.net.URI;
 
@@ -51,5 +50,17 @@ public class myWebSocketClient extends WebSocketClient {
 
     public interface callBack{
         public void nextMusicCallback();
+    }
+
+    @Override
+    public void send(String text) {
+        if(this.isClosed()){
+            try {
+                this.reconnectBlocking();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        super.send(text);
     }
 }
